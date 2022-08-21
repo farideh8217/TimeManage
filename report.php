@@ -5,7 +5,7 @@ auth();
 
 $user_id = $_SESSION["user_id"];
 
-if (!isset($product_id)) {
+if (!isset($_POST["product_id"])) {
     header("Location: project.php");
     exit();
 }
@@ -31,6 +31,13 @@ $time = time();
 
 $activities = getactivity();
 foreach ($activities as $activity) {
-    if (isset($normally_hours[$activity["id"]], $normally_minutes[$activity["id"]], $overtime_hours[$activity["id"]], $overtime_minutes[$activity["id"]]))
+    $aid = $activity["id"];
+    if (isset($normally_hours[$activity["id"]], $normally_minutes[$activity["id"]], $overtime_hours[$activity["id"]], $overtime_minutes[$activity["id"]])) {
         addreport($user_id, $product_id, $project_id, $activity["id"], $normally_hours[$activity["id"]], $normally_minutes[$activity["id"]], $overtime_hours[$activity["id"]], $overtime_minutes[$activity["id"]]);
+        print $activity["name"] . "\n";
+        print $normally_hours[$aid] . "\n";
+        print $normally_minutes[$aid] . "\n";
+        print $overtime_hours[$aid] . "\n";
+        print $overtime_minutes[$aid] . "\n";
+    }
 }
