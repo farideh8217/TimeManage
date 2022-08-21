@@ -5,7 +5,7 @@ if (isset($_POST["username"],$_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM `user` WHERE `user_name`= :username and `password`= :password";
+    $sql="SELECT * FROM `user` WHERE `user_name`= :username and `password`= :password";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":username",$username);

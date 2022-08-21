@@ -1,6 +1,8 @@
 <?php
 require "load.php";
 
+auth();
+
 $projects = getprojects();
 ?>
 <form action="product.php" method="POST">
