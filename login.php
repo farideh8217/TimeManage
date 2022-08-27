@@ -20,12 +20,10 @@ if (isset($_POST["username"], $_POST["password"])) {
         header("Location: project.php");
     }
 }
-
 ?>
 <form action="" method="POST">
     username:<input type="text" name="username"><br>
     password:<input type="text" name="password"><br>
     <input type="submit" name="submit" value="submit">
-
 </form>
     
